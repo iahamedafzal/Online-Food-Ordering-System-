@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodExpress - Food Delivery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand" onclick="goHome()">Food<span>Express</span></div>
+  <button class="location-btn" onclick="openLocation()">📍 <span id="locationText">Mumbai</span>⌄</button>
+
+  <div class="header-search">
+    <span>⌕</span>
+    <input id="searchInput" type="search" placeholder="Search for pizza, burger, chicken, drinks...">
+  </div>
+
+  <nav>
+    <button onclick="scrollToSection('restaurants')">Restaurants</button>
+    <button onclick="scrollToSection('offers')">Offers</button>
+    <button onclick="openLogin()">Sign In</button>
+    <button class="cart-top" onclick="openCart()">🛒 Cart <b id="cartCount">0</b></button>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <div class="pill">⚡ Fast delivery • Live order tracking</div>
+      <h1>Your favourite food,<br><span>delivered fast.</span></h1>
+      <p>Order pizza, burgers, biryani, chicken, drinks and more from nearby restaurants.</p>
+      <div class="hero-search">
+        <span>⌕</span>
+        <input id="heroSearch" type="search" placeholder="Search dishes or restaurants">
+        <button onclick="runSearch()">Search</button>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="floating-card c1">🍕<strong>Hot Pizza</strong><small>20 min</small></div>
+      <div class="food-orb">🍕</div>
+      <div class="floating-card c2">⭐ 4.8<br><small>Top rated</small></div>
+    </div>
+  </section>
+
+  <section class="section" id="categories">
+    <div class="section-head"><div><span class="eyebrow">EXPLORE</span><h2>What are you craving?</h2></div></div>
+    <div class="category-grid">
+      <button class="category" onclick="filterCategory('Pizza')"><span>🍕</span><b>Pizza</b><small>Hot & cheesy</small></button>
+      <button class="category" onclick="filterCategory('Burger')"><span>🍔</span><b>Burgers</b><small>Juicy & loaded</small></button>
+      <button class="category" onclick="filterCategory('Chicken')"><span>🍗</span><b>Chicken</b><small>Crispy & spicy</small></button>
+      <button class="category" onclick="filterCategory('Biryani')"><span>🍛</span><b>Biryani</b><small>Rich & aromatic</small></button>
+      <button class="category" onclick="filterCategory('Noodles')"><span>🍜</span><b>Noodles</b><small>Wok tossed</small></button>
+      <button class="category" onclick="filterCategory('Drinks')"><span>🥤</span><b>Drinks</b><small>Cool & refreshing</small></button>
+      <button class="category" onclick="filterCategory('Dessert')"><span>🍰</span><b>Desserts</b><small>Sweet treats</small></button>
+    </div>
+  </section>
+
+  <section class="section" id="offers">
+    <div class="section-head"><div><span class="eyebrow">DEALS</span><h2>Offers for you</h2></div></div>
+    <div class="offers-grid">
+      <button class="offer orange" onclick="applyOffer('SAVE50')"><b>50% OFF</b><span>Use SAVE50 on your first order</span><strong>Apply →</strong></button>
+      <button class="offer dark" onclick="applyOffer('FREEDEL')"><b>FREE DELIVERY</b><span>On orders above ₹399</span><strong>Apply →</strong></button>
+      <button class="offer light" onclick="applyOffer('CHICKEN100')"><b>₹100 OFF</b><span>On selected chicken meals</span><strong>Apply →</strong></button>
+    </div>
+  </section>
+
+  <section class="section" id="restaurants">
+    <div class="section-head">
+      <div><span class="eyebrow">NEAR YOU</span><h2>Popular restaurants & hotels</h2></div>
+      <button class="clear-btn" onclick="showAll()">View all</button>
+    </div>
+    <div id="restaurantGrid" class="restaurant-grid"></div>
+  </section>
+
+  <section class="section menu-section" id="menu">
+    <div class="section-head">
+      <div><span class="eyebrow">MENU</span><h2>Popular dishes</h2></div>
+      <button class="clear-btn" onclick="showAll()">All dishes</button>
+    </div>
+    <div id="menuGrid" class="menu-grid"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-brand">Food<span>Express</span></div>
+  <p>Fresh food. Fast delivery. Simple ordering.</p>
+  <div class="footer-links"><button onclick="openLogin()">Account</button><button onclick="scrollToSection('restaurants')">Restaurants</button><button onclick="openCart()">Cart</button></div>
+</footer>
+
+<nav class="mobile-nav">
+  <button onclick="goHome()">⌂<small>Home</small></button>
+  <button onclick="focusSearch()">⌕<small>Search</small></button>
+  <button onclick="scrollToSection('offers')">🎁<small>Offers</small></button>
+  <button onclick="openCart()">🛒<small>Cart <b id="mobileCartCount">0</b></small></button>
+  <button onclick="openLogin()">◯<small>Profile</small></button>
+</nav>
+
+<div id="modalRoot"></div>
+<div id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
